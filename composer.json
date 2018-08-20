@@ -1,0 +1,19 @@
+{
+    "name": "berle/logger",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anders Nor Berle",
+            "email": "anders@berle.cc"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Berle\\Logger\\": "src/"
+        }
+    }
+}
