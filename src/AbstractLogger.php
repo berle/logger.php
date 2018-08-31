@@ -10,7 +10,7 @@ define("BERLE_LOGGER_ERROR",  1);
 abstract class AbstractLogger implements LoggerInterface
 {
     
-    protected $log_level = BERLE_LOGGER_INFO;
+    protected $level = BERLE_LOGGER_INFO;
 
     abstract protected function message(string $label, string $message, array $data): void;
 
