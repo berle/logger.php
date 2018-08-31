@@ -2,41 +2,30 @@
 
 namespace Berle\Logger;
 
-class CallbackLogger implements LoggerInterface
+class CallbackLogger extends AbstractLogger
 {
     
     protected $callback;
     
-    public function __construct()
+    public function __construct(callable $callback = null)
     {
-        $this->callback = function () {};
+        if (is_null($callback)) {
+            $this->callback = function () {};
+        } else {
+            $this->callback = $callback;
+        }
     }
     
-    public function callback(\Closure $callback)
+    public function callback(callable $callback)
     {
         $this->callback = $callback;
         
         return $this;
     }
-
-    public function debug(string $message, array $data = []): void
-    {
-        ($this->callback)("debug", $message, $data);
-    }
     
-    public function info(string $message, array $data = []): void
+    protected function message(string $label, string $message, array $data): void
     {
-        ($this->callback)("info", $message, $data);
+        ($this->callback)($label, $message, $data);
     }
 
-    public function warn(string $message, array $data = []): void
-    {
-        ($this->callback)("warn", $message, $data);
-    }
-
-    public function error(string $message, array $data = []): void
-    {
-        ($this->callback)("error", $message, $data);
-    }
-    
 }

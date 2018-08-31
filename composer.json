@@ -9,12 +9,19 @@
             "email": "anders@berle.cc"
         }
     ],
+    "keywords": [
+        "logging"
+    ],
     "require": {
         "php": ">=7.2"
     },
     "autoload": {
         "psr-4": {
-            "Berle\\Logger\\": "src/"
+            "Berle\\Logger\\": "src/",
+            "Berle\\Logger\\Tests\\": "tests/Tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.3"
     }
 }
